@@ -5,7 +5,6 @@ import {NotificationsStack} from './NotificationNavigator';
 import {FeedScreen} from '../screens/FeedScreen';
 import {SearchScreen} from '../screens/SearchScreen';
 import {MessagesScreen} from '../screens/MessagesScreen';
-
 import {Header} from '../header/Header'
 
 const Tab = createBottomTabNavigator();
@@ -18,11 +17,7 @@ export default function AppNavigator() {
         component={FeedScreen}
         options={{
           headerTitleAlign: 'center',
-          headerRight: () => (
-            
-          
-          <Header/>
-          )
+          headerRight: () => <Header/>
         }} />
       <Tab.Screen name="Поиск" component={SearchScreen} />
       <Tab.Screen name="Сообщения" component={MessagesScreen} />

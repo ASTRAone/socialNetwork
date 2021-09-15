@@ -14,19 +14,16 @@ export const NotificationsStack = () => {
             component={CommentsScreen}
             options={{
               title: 'Сообщения',
-              headerTitleStyle: {
-                  width: '100%',
-                  alignContent: 'center',
-              },
-          }}
-/>
+              headerTitleAlign: 'center',
+          }} />
         <Stack.Screen 
             screenOptions={{ headerShown: false }}
             name="Notifications" 
             component={NotificationsScreen}
-            options={
-                {title: 'Уведомления'}
-            } />
+            options={{
+              title: 'Уведомления',
+              headerTitleAlign: 'center',
+          }} />
     </Stack.Navigator>
   );
 };
