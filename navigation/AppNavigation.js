@@ -17,7 +17,11 @@ export default function AppNavigator() {
         component={FeedScreen}
         options={{
           headerTitleAlign: 'center',
-          headerRight: () => <Header/>
+          headerRight: () => <Header/>,
+          headerStyle: {
+            
+          }
+
         }} />
       <Tab.Screen name="Поиск" component={SearchScreen} />
       <Tab.Screen name="Сообщения" component={MessagesScreen} />
