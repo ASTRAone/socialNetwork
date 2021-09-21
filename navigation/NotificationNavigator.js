@@ -8,22 +8,24 @@ const Stack = createStackNavigator();
 
 export const NotificationsStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Comments" >
-        <Stack.Screen
-            name="Comments" 
-            component={CommentsScreen}
-            options={{
-              title: 'Сообщения',
-              headerTitleAlign: 'center',
-          }} />
-        <Stack.Screen 
-            screenOptions={{ headerShown: false }}
-            name="Notifications" 
-            component={NotificationsScreen}
-            options={{
-              title: 'Уведомления',
-              headerTitleAlign: 'center',
-          }} />
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Comments"
+        component={CommentsScreen}
+        options={{
+          title: 'Сообщения',
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        screenOptions={{headerShown: false}}
+        name="Notifications"
+        component={NotificationsScreen}
+        options={{
+          title: 'Уведомления',
+          headerTitleAlign: 'center',
+        }}
+      />
     </Stack.Navigator>
   );
 };
