@@ -9,6 +9,7 @@ const initialState = {
   // },
   people: {
     data: [],
+    loading: false,
   },
 };
 export default initialState;

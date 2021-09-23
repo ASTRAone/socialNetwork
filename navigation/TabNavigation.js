@@ -4,10 +4,10 @@ import {NotificationsStack} from './NotificationNavigator';
 import {DarwerStack} from './DrawerNavigator';
 import {FilmStack} from './filmStack/FilmNavigator'
 
-import {SearchScreen} from '../screens/SearchScreen';
 import {MessagesScreen} from '../screens/MessagesScreen';
 
 import {StyleSheet, Image} from 'react-native';
+import {Image} from 'react-native-svg'
 
 import R from '../resources/R';
 

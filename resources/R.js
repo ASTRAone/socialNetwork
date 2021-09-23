@@ -2,7 +2,7 @@ import {Platform} from 'react-native';
 
 export default class R {
   static server = {
-    swapi: 'http swapi.dev/api/',
+    swapi: 'https://swapi.dev/api/',
   };
 
   static fonts = {
