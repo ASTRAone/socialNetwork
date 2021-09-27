@@ -4,7 +4,6 @@ import {Provider} from 'react-redux';
 import store from './store/configurationStore';
 import {TabStack} from './navigation/TabNavigation';
 
-
 export const App = () => {
   return (
     <Provider store={store}>

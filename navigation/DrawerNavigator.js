@@ -1,9 +1,10 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {PeopleScreen} from '../screens/galaxy/PeopleScreen';
-import {TechnologiesScreen} from '../screens/galaxy/TechnologiesScreen';
 import {DrawerContent} from '../drawerContent/DrawerContent';
+
+import {GalaxyPeopleStack} from './galaxyStack/GalaxyPeopleNavigator';
+import {GalaxyTechnologiesStack} from './galaxyStack/GalaxyTechnologiesNavigator';
 
 import R from '../resources/R';
 
@@ -13,8 +14,8 @@ export const DarwerStack = () => {
   return (
     <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
       <Drawer.Screen
-        name="PeopleScreen"
-        component={PeopleScreen}
+        name="PeopleStack"
+        component={GalaxyPeopleStack}
         options={{
           title: 'Джедаи и Ситхи',
           headerTitleAlign: 'center',
@@ -29,8 +30,8 @@ export const DarwerStack = () => {
         }}
       />
       <Drawer.Screen
-        name="TechnologiesScreen"
-        component={TechnologiesScreen}
+        name="TechnologiesStack"
+        component={GalaxyTechnologiesStack}
         options={{
           title: 'Технологии',
           headerTitleAlign: 'center',

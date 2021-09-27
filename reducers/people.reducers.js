@@ -13,7 +13,7 @@ export const PeopleReducer = createSlice({
 
   extraReducers: builder => {
     builder.addCase(fetchPepople.pending, state => {
-      state.loading;
+      state.loading = true;
     });
     builder.addCase(fetchPepople.fulfilled, (state, action) => {
       console.log('ReducerPeople', action.payload);

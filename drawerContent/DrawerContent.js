@@ -2,6 +2,8 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 
+import {StormTrooper} from '../icons/stormTrooper';
+
 export const DrawerContent = ({navigation}) => {
   return (
     <View style={styles.constainer}>
@@ -9,27 +11,23 @@ export const DrawerContent = ({navigation}) => {
         <View style={styles.constainerImage}>
           <Image
             style={styles.image}
-            source={{
-              uri: 'https://starwars.ru/static/images/sw_logo.png',
-            }}
+            source={require('../images/logo.png')}
           />
         </View>
         <View style={styles.containerLinks}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('PeopleScreen')}
+            onPress={() => navigation.navigate('PeopleStack')}
             style={styles.link}>
             <Text style={styles.linkText}>Персонажи</Text>
-            <Image
-              style={styles.linkImage}
-              source={{
-                uri: 'https://cdn.icon-icons.com/icons2/1070/PNG/128/stormtrooper_icon-icons.com_76962.png',
-              }}
-            />
+          <View style={styles.linkImage}>
+            <StormTrooper />
+          </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate('TechnologiesScreen')}
+            onPress={() => navigation.navigate('TechnologiesStack')}
             style={styles.link}>
             <Text style={styles.linkText}>Технологии</Text>
+            {/* TODO: доделать SVG иконку для технологий */}
             <Image
               style={styles.linkImage}
               source={{

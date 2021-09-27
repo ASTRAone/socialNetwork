@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NotificationsStack} from './NotificationNavigator';
 import {DarwerStack} from './DrawerNavigator';
@@ -6,8 +7,10 @@ import {FilmStack} from './filmStack/FilmNavigator'
 
 import {MessagesScreen} from '../screens/MessagesScreen';
 
-import {StyleSheet, Image} from 'react-native';
-import {Image} from 'react-native-svg'
+import {Variety} from '../icons/variety';
+import {Movie} from '../icons/movie';
+import {Planer} from '../icons/planet';
+import {SpaceShip} from '../icons/spaceShip';
 
 import R from '../resources/R';
 
@@ -33,12 +36,9 @@ export const TabStack = () => {
           headerTitleAlign: 'center',
           headerShown: false,
           tabBarIcon: () => (
-            <Image
-              style={styles.icon}
-              source={{
-                uri: 'https://cdn.icon-icons.com/icons2/335/PNG/128/Death_Star_2nd_35408.png',
-              }}
-            />
+            <View>
+              <Planer />
+            </View>
           ),
         }}
       />
@@ -50,12 +50,9 @@ export const TabStack = () => {
           tabBarLabel: 'Фильмы',
           headerShown: false,
           tabBarIcon: () => (
-            <Image
-              style={styles.icon}
-              source={{
-                uri: 'https://cdn.icon-icons.com/icons2/198/PNG/128/Folder_iMovies_2_24096.png',
-              }}
-            />
+            <View>
+              <Movie />
+            </View>
           ),
         }}
       />
@@ -66,12 +63,9 @@ export const TabStack = () => {
           headerTitleAlign: 'center',
           tabBarLabel: 'Транспорт',
           tabBarIcon: () => (
-            <Image
-              style={styles.icon}
-              source={{
-                uri: 'https://cdn.icon-icons.com/icons2/335/PNG/128/Landspeeder_35433.png',
-              }}
-            />
+            <View>
+              <SpaceShip />
+            </View>
           ),
         }}
       />
@@ -83,22 +77,12 @@ export const TabStack = () => {
           headerTitleAlign: 'center',
           tabBarLabel: 'Разновидность',
           tabBarIcon: () => (
-            <Image
-              style={styles.icon}
-              source={{
-                uri: 'https://cdn.icon-icons.com/icons2/1070/PNG/128/jawa_icon-icons.com_76960.png',
-              }}
-            />
+            <View>
+              <Variety />
+            </View>
           ),
         }}
       />
     </Tab.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  icon: {
-    width: 35,
-    height: 35,
-  },
-});
