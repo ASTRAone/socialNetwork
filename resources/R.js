@@ -11,6 +11,7 @@ export default class R {
 
   static url= {
     people: 'people/',
+    
   };
 
   static colors = {

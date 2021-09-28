@@ -25,6 +25,7 @@ export const GalaxyPeopleStack = () => {
         options={{
           title: 'Карточка персонажа',
           headerTitleAlign: 'center',
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

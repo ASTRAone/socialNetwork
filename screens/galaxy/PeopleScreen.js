@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {fetchPepople} from '../../actions/people.action';
+import {fetchPeople} from '../../actions/people.action';
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
@@ -23,7 +23,7 @@ const PeopleScreenItem = ({name, height, birth_year}) => {
   return (
     <TouchableOpacity 
       style={styles.itemContent}
-      onPress={() => navigation.navigate('PeopleCardScreen')}>
+      onPress={() => navigation.navigate('PeopleCardScreen', {name})}>
       <Image
         style={{
           width: 150,
@@ -65,7 +65,7 @@ export const PeopleScreen = ({navigation}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPepople());
+    dispatch(fetchPeople());
   }, []);
 
   return (
