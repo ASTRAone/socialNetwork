@@ -5,13 +5,23 @@ export default class R {
     swapi: 'https://swapi.dev/api/',
   };
 
-  static fonts = {
+  static fonts = {};
 
+  static url = {
+    people: 'people/',
+    technologies: 'starships/',
+    films: 'films/',
+    transport: 'vehicles/',
+    variety: 'species/',
   };
 
-  static url= {
-    people: 'people/',
-    
+  static string = {
+    unexpectedErrorComponent: {
+      unexpectedError: 'Непредвиденная ошибка',
+      unexpectedErrorText:
+        'Произошла непредвиденная ошибка, группа спасателей уже разбирается с этим. Пожалуйста попробуйте позже',
+      refresh: 'Обновить',
+    },
   };
 
   static colors = {
@@ -22,5 +32,6 @@ export default class R {
     dark20: '#32383e', /* content */
     gray10: '#c8c8c8', /* title */
     gray30: '#a7a7a7', /* text/label */
+    gray40: '#272b30', /* content */
   };
-};
+}

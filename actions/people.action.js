@@ -17,15 +17,15 @@ export const fetchPeople = createAsyncThunk('FetchPeople', async (_, {rejectWith
 });
 
 export const fetchCardPeople = createAsyncThunk('FetchCardPeople', async (value, {rejectWithValue}) => {
-  console.log(R.url.people)
+  console.log(R.url.people);
+  console.log(value)
   try {
-      const response = await customAxios.get(R.url.people + `${value}/`);
+      const response = await customAxios.get(R.url.people + `?search=${value}`);
       console.log(response);
       return {
         data: response.data.results,
       };
   } catch (error) {
-      logTheEvent('Error', 'fetchPageNews', error.response || error);
-      return rejectWithValue(error.response.data);
+      console.log(error.response.data)
   }
 });

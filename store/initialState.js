@@ -1,15 +1,24 @@
 const initialState = {
-  // notifications: {
-  //     data: [],
-  //     loading: false,
-  //     loadingMore: false,
-  //     hasMore: false,
-  //     pageNum: 0,
-  //     refreshLoading: false,
-  // },
   people: {
     data: [],
     loading: false,
   },
+  technologies: {
+    data: [],
+    loading: false,
+  },
+  films: {
+    data: [],
+    loading: false,
+  },
+  transport: {
+    data: [],
+    loading: false,
+  },
+  variety: {
+    data: [],
+    loading: false,
+  }
 };
+
 export default initialState;

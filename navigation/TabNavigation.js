@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NotificationsStack} from './NotificationNavigator';
 import {DarwerStack} from './DrawerNavigator';
-import {FilmStack} from './filmStack/FilmNavigator'
+import {VarietyStack} from './varietyStack/VarietyNavigator';
+import { useTheme } from '@react-navigation/native';
 
-import {MessagesScreen} from '../screens/MessagesScreen';
+import {FilmsScreen} from '../screens/film/filmsScreen';
+import {TransportScreen} from '../screens/transport/TransportScreen';
 
 import {Variety} from '../icons/variety';
 import {Movie} from '../icons/movie';
@@ -13,18 +14,24 @@ import {Planer} from '../icons/planet';
 import {SpaceShip} from '../icons/spaceShip';
 
 import R from '../resources/R';
+import { white } from '../utility/darkTheme';
+import { dark } from '../utility/darkTheme';
 
 const Tab = createBottomTabNavigator();
 
+// TODO: доделать darkTheme у label(чтобы была анимация при нажатии)
+
 export const TabStack = () => {
+  const {dark: isDark} = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
           height: 55,
-          backgroundColor: R.colors.dark10,
+          backgroundColor: isDark ? R.colors.dark10 : white.backgroundTab,
           borderTopColor: 'rgba(0, 0, 0, 0.6)',
-          borderTopWidth: 1,
+          borderTopWidth: isDark ? 1 : 0,
         },
       }}>
       <Tab.Screen
@@ -32,7 +39,10 @@ export const TabStack = () => {
         component={DarwerStack}
         options={{
           tabBarLabel: 'Вселенная',
-          tabBarLabelStyle: {},
+          tabBarLabelStyle: {
+            color: white.text
+          },
+
           headerTitleAlign: 'center',
           headerShown: false,
           tabBarIcon: () => (
@@ -44,11 +54,19 @@ export const TabStack = () => {
       />
       <Tab.Screen
         name="FilmsScreen"
-        component={FilmStack}
+        component={FilmsScreen}
         options={{
+          title: 'Фильмы',
           headerTitleAlign: 'center',
           tabBarLabel: 'Фильмы',
-          headerShown: false,
+          headerStyle: {
+            backgroundColor: isDark ? R.colors.dark10 : white.backgroundTab,
+            borderBottomColor: 'rgba(0, 0, 0, 0.6)',
+            borderBottomWidth: isDark ? 1 : 0,
+          },
+          headerTitleStyle: {
+            color: R.colors.gray10,
+          },
           tabBarIcon: () => (
             <View>
               <Movie />
@@ -58,10 +76,19 @@ export const TabStack = () => {
       />
       <Tab.Screen
         name="TransportScreen"
-        component={MessagesScreen}
+        component={TransportScreen}
         options={{
+          title: 'Транспорт',
           headerTitleAlign: 'center',
           tabBarLabel: 'Транспорт',
+          headerStyle: {
+            backgroundColor: isDark ? R.colors.dark10 : white.backgroundTab,
+            borderBottomColor: 'rgba(0, 0, 0, 0.6)',
+            borderBottomWidth: isDark ? 1 : 0,
+          },
+          headerTitleStyle: {
+            color: R.colors.gray10,
+          },
           tabBarIcon: () => (
             <View>
               <SpaceShip />
@@ -71,7 +98,7 @@ export const TabStack = () => {
       />
       <Tab.Screen
         name="VarietyScreen"
-        component={NotificationsStack}
+        component={VarietyStack}
         options={{
           headerShown: false,
           headerTitleAlign: 'center',

@@ -1,12 +1,21 @@
-import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import {View, Text, StyleSheet, Image, TouchableOpacity, Switch} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 
 import {StormTrooper} from '../icons/stormTrooper';
+import R from '../resources/R';
+import { dark } from '../utility/darkTheme';
+import { white } from '../utility/darkTheme';
+
+import { EventRegister } from 'react-native-event-listeners';
+import { useTheme } from '@react-navigation/native';
 
 export const DrawerContent = ({navigation}) => {
+  const [darkMode, setDarkMode] = useState(false);
+  const {dark: isDark} = useTheme();
+
   return (
-    <View style={styles.constainer}>
+    <View style={[styles.constainer, {backgroundColor: isDark ? R.colors.dark20 : white.background}]}>
       <DrawerContentScrollView>
         <View style={styles.constainerImage}>
           <Image
@@ -16,17 +25,17 @@ export const DrawerContent = ({navigation}) => {
         </View>
         <View style={styles.containerLinks}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('PeopleStack')}
+            onPress={() => navigation.navigate('PeopleScreen')}
             style={styles.link}>
-            <Text style={styles.linkText}>Персонажи</Text>
+            <Text style={[styles.linkText, {color: isDark ? dark.text : white.text}]}>Персонажи</Text>
           <View style={styles.linkImage}>
             <StormTrooper />
           </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate('TechnologiesStack')}
+            onPress={() => navigation.navigate('TechnologiesScreen')}
             style={styles.link}>
-            <Text style={styles.linkText}>Технологии</Text>
+            <Text style={[styles.linkText, {color: isDark ? dark.text : white.text}]}>Технологии</Text>
             {/* TODO: доделать SVG иконку для технологий */}
             <Image
               style={styles.linkImage}
@@ -37,6 +46,15 @@ export const DrawerContent = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </DrawerContentScrollView>
+      <View style={styles.darkModeContainer}>
+        <Text style={[styles.darkModeText, {color: isDark ? dark.text : white.text}]}>Темная тема</Text>
+        <Switch
+          value={darkMode}
+          onValueChange={val => {
+            setDarkMode(val);
+            EventRegister.emit('changeEventTheme', val);
+          }} />
+      </View>
     </View>
   );
 };
@@ -65,13 +83,13 @@ const styles = StyleSheet.create({
   link: {
     marginBottom: 20,
     flexDirection: 'row',
-    borderColor: '#ffff',
+    borderColor: R.colors.white,
     borderWidth: 2,
     padding: 10,
     alignItems: 'center',
   },
   linkText: {
-    color: '#ffff',
+    color: R.colors.white,
     textTransform: 'uppercase',
   },
   linkImage: {
@@ -79,4 +97,14 @@ const styles = StyleSheet.create({
     height: 30,
     marginLeft: 20,
   },
+  darkModeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  darkModeText: {
+    color: R.colors.white,
+    fontSize: 16,
+  }
 });
